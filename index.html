@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ vựng Phrasal Verb- Lớp Anh thầy Kết</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+ header {
+  background-color: #ffd6ba;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #7a4e3e;
+  display: flex;
+  flex-wrap: wrap;       
+  align-items: center;
+  justify-content: space-between;  /* Left luôn bên trái, center căn giữa */
+  gap: 15px;
+}
+
+/* Left: icon + home text */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;          /* không bị co lại */
+}
+
+.header-left a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: #7a4e3e;
+  text-decoration: none;
+}
+
+.header-left a i {
+  font-size: 28px;
+}
+
+/* Center title */
+header {
+  position: relative;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  white-space: nowrap;
+}
+/* ===== TOP SELECT ===== */
+.top-select {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 40px;
+}
+
+select {
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #a0e7e5;
+  background-color: #e3fdfd;
+}
+
+
+
+/* MEDIA QUERY cho điện thoại */
+@media (max-width: 480px) {
+
+    .header-center {
+    flex-basis: 100%;
+    order: 2;
+    text-align: center;
+    position: static;
+    transform: none;
+    margin-top: 8px;
+  }
+
+  .header-left {
+    order: 1;
+  }
+}
+
+  header {
+    padding: 10px 15px;
+  }
+  .header-left a {
+    font-size: 18px;
+  }
+  .header-left a i {
+    font-size: 20px;
+  }
+  .header-center {
+    font-size: 22px;
+  }
+}
+
+
+  .top-select {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 40px;
+  }
+
+  select {
+    padding: 8px 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #a0e7e5;
+    background-color: #e3fdfd;
+  }
+
+  /* Word list */
+  .word-list {
+    width: 85%;
+    margin: 20px auto;
+    background-color: #E0FBE2;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 22px;
+  }
+
+.word-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px dashed #ffb3ba;
+  transition: background-color .15s ease-in-out;
+}
+.word-row:last-child { border-bottom: none; }
+
+/* Hover đổi màu */
+.word-row:hover {
+  background-color: #fffacd; /* xanh nhạt dễ thấy */
+  cursor: pointer;
+}
+
+  /* Ôn tập */
+  .review-box {
+    margin: 40px auto;
+    width: 70%;
+    background-color: #ffe5ec;
+    padding: 25px;
+    font-weight: bold;
+    color: #607274;
+    font-size: 26px;
+    border-radius: 12px;
+    position: relative;
+  }
+  .review-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+.review-buttons button {
+  background-color: #a0e7e5;
+  border: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.review-buttons button:hover {
+  background-color: #ffb3ba;
+}
+
+
+  /* Bài tập */
+  .exercise {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .exercise input {
+    width: 220px;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+
+  .exercise button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 18px;
+    background-color: #a0e7e5;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .exercise button:hover {
+    background-color: #ffb3ba;
+  }
+
+  .result {
+    font-weight: bold;
+    color: #C5705D;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  footer {
+    font-size: 22px;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7a4e3e;
+    background-color: #fff0e1;
+  }
+
+  .confetti {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: .9;
+    animation: pop .9s ease-out forwards;
+  }
+  @keyframes pop {
+    0% { transform: translate(0,0) scale(1); opacity:1;}
+    50% {transform: translate(calc(var(--x)*.5),calc(var(--y)*.4)) scale(1.1);opacity:1;}
+    100% {transform: translate(var(--x),var(--y)) scale(.5);opacity:0;}
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="https://ketng91.github.io/TuvungTHPTQG-homepage/">
+      <i class="fa-solid fa-house"></i> Lớp Anh thầy Kết
+    </a>
+  </div>
+  <div class="header-center">
+    Từ vựng Phrasal Verb
+  </div>
+</header>
+
+<!-- Bộ chọn -->
+<div class="top-select">
+  <select id="wordList">
+    <option value="1">Từ vựng Phrasal Verb A - D</option>
+    <option value="2">Từ vựng Phrasal Verb F - L</option>
+    <option value="3">Từ vựng Phrasal Verb M - T</option>
+    <option value="4">Từ vựng Phrasal Verb S - W</option>
+    <option value="5">Từ vựng Phrasal Verb 3 từ</option>
+
+
+  </select>
+</div>
+
+
+
+<script>
+// Bắt sự kiện Enter cho tất cả các ô input trong bài tập
+document.addEventListener("DOMContentLoaded", function() {
+  const exerciseInputs = document.querySelectorAll(".exercise input");
+
+  exerciseInputs.forEach(input => {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {      // Kiểm tra nếu nhấn Enter
+        e.preventDefault();          // Ngăn việc xuống dòng mặc định
+        const checkBtn = this.nextElementSibling; // giả định nút Check ngay sau input
+        if (checkBtn && checkBtn.tagName === "BUTTON") {
+          checkBtn.click();         // kích hoạt nút Check
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+
+<!-- Danh sách từ vựng -->
+<div class="word-list" id="wordContainer"></div>
+
+<!-- Ôn tập -->
+<div class="review-box">
+<div id="progressCounter"
+     style="position:absolute; top:12px; right:18px;
+            font-size:18px; color:#7a4e3e;">
+  Đã biết 0 / 0
+</div>
+
+
+  <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
+    
+  <!-- Hiển thị đáp án -->
+<div id="answer" style="font-size:22px;color:#7a4e3e; margin-top:15px; text-align:center; min-height:40px;"></div>
+   
+  <!-- Nút bấm -->
+  <div class="review-buttons" style="margin-top:20px;">
+    <button onclick="know()">Đã biết</button>
+    <button onclick="dontKnow()">Chưa biết</button>
+    <button onclick="nextWord()">Tiếp theo</button>
+  </div>
+
+</div>
+
+<!-- Bài tập -->
+<div class="exercise" id="exercise"></div>
+
+<footer>Chúc mừng bạn đã hoàn thành bài học!</footer>
+<script>
+const selectEl = document.getElementById("wordList");
+
+function sortOptionsByNumber() {
+  const opts = Array.from(selectEl.options);
+
+  opts.sort((a, b) => {
+    return Number(a.value) - Number(b.value);
+  });
+
+  selectEl.innerHTML = "";
+  opts.forEach(o => selectEl.appendChild(o));
+}
+
+// sort ngay khi load
+sortOptionsByNumber();
+
+// sort lại khi mở dropdown
+selectEl.addEventListener("mousedown", sortOptionsByNumber);
+selectEl.addEventListener("touchstart", sortOptionsByNumber);
+</script>
+
+<script>
+/********** DATA **********/
+const data = {
+  1: [
+  { en: "account for (v) /əˈkaʊnt fɔːr/", vn: "giải thích; chiếm (bao nhiêu %)", tick: false },
+  { en: "ask after (v) /ɑːsk ˈɑːftər/", vn: "hỏi thăm sức khỏe", tick: false },
+  { en: "ask about (v) /ɑːsk əˈbaʊt/", vn: "hỏi về điều gì đó", tick: false },
+  { en: "ask for (v) /ɑːsk fɔːr/", vn: "xin cái gì; yêu cầu", tick: false },
+  { en: "ask sb out (v) /ɑːsk aʊt/", vn: "mời ai đó đi chơi/hẹn hò", tick: false },
+  
+  { en: "break away (v) /breɪk əˈweɪ/", vn: "trốn thoát; rời khỏi nhóm", tick: false },
+  { en: "break down (v) /breɪk daʊn/", vn: "hỏng hóc (máy móc); suy sụp (tinh thần)", tick: false },
+  { en: "break in (v) /breɪk ɪn/", vn: "ngắt lời; đột nhập (nội động từ)", tick: false },
+  { en: "break into (v) /breɪk ˈɪntuː/", vn: "đột nhập vào đâu đó", tick: false },
+  { en: "break off (v) /breɪk ɒf/", vn: "chấm dứt (quan hệ, đàm phán)", tick: false },
+  { en: "break out (v) /breɪk aʊt/", vn: "bùng nổ (chiến tranh, dịch bệnh)", tick: false },
+  { en: "break up (v) /breɪk ʌp/", vn: "chia tay; kết thúc (năm học/khóa học)", tick: false },
+  
+  { en: "bring about (v) /brɪŋ əˈbaʊt/", vn: "gây ra; dẫn đến", tick: false },
+  { en: "bring back (v) /brɪŋ bæk/", vn: "gợi nhớ lại; mang trả lại", tick: false },
+  { en: "bring down (v) /brɪŋ daʊn/", vn: "hạ bệ; làm giảm xuống", tick: false },
+  { en: "bring forward (v) /brɪŋ ˈfɔːrwərd/", vn: "dời lịch sớm hơn; đề xuất", tick: false },
+  { en: "bring in (v) /brɪŋ ɪn/", vn: "ban hành luật mới; thu hút tiền bạc", tick: false },
+  { en: "bring off (v) /brɪŋ ɒf/", vn: "thành công (việc khó khăn)", tick: false },
+  { en: "bring out (v) /brɪŋ aʊt/", vn: "xuất bản; làm nổi bật lên", tick: false },
+  { en: "bring up (v) /brɪŋ ʌp/", vn: "nuôi nấng; đề cập đến một chủ đề", tick: false },
+  { en: "bring round/to (v) /brɪŋ raʊnd/", vn: "làm cho tỉnh lại (sau ngất)", tick: false },
+  
+  { en: "blow out (v) /bləʊ aʊt/", vn: "thổi tắt (nến)", tick: false },
+  { en: "blow up (v) /bləʊ ʌp/", vn: "nổ tung; bơm căng (lốp xe)", tick: false },
+  { en: "blow down (v) /bləʊ daʊn/", vn: "làm đổ rạp (do gió)", tick: false },
+  { en: "blow over (v) /bləʊ ˈəʊvər/", vn: "đi qua, bị quên lãng (vấn đề, rắc rối)", tick: false },
+  
+  { en: "catch on (v) /kætʃ ɒn/", vn: "trở nên phổ biến; hiểu ra", tick: false },
+  { en: "catch out (v) /kætʃ aʊt/", vn: "bắt lỗi; đặt ai vào tình thế khó khăn", tick: false },
+  { en: "catch up with (v) /kætʃ ʌp wɪð/", vn: "đuổi kịp; bắt kịp (trình độ/tốc độ)", tick: false },
+  
+  { en: "call out (v) /kɔːl aʊt/", vn: "gọi to; gọi cấp cứu/cứu hỏa", tick: false },
+  { en: "call on/upon (v) /kɔːl ɒn/", vn: "mời ai phát biểu; ghé thăm (trang trọng)", tick: false },
+  { en: "call for (v) /kɔːl fɔːr/", vn: "đòi hỏi; cần phải có", tick: false },
+  { en: "call off (v) /kɔːl ɒf/", vn: "hủy bỏ (lịch trình, sự kiện)", tick: false },
+  { en: "call up (v) /kɔːl ʌp/", vn: "gọi đi lính; gọi điện thoại", tick: false },
+  { en: "call at (v) /kɔːl æt/", vn: "ghé thăm một địa điểm (ga tàu, bến cảng)", tick: false },
+  
+  { en: "come about (v) /kʌm əˈbaʊt/", vn: "xảy ra", tick: false },
+  { en: "come across (v) /kʌm əˈkrɒs/", vn: "tình cờ gặp/thấy", tick: false },
+  { en: "come by (v) /kʌm baɪ/", vn: "có được (thứ gì đó khó kiếm)", tick: false },
+  { en: "come down with (v) /kʌm daʊn wɪð/", vn: "mắc bệnh nhẹ (cảm, sốt...)", tick: false },
+  { en: "come into (v) /kʌm ˈɪntuː/", vn: "thừa kế", tick: false },
+  { en: "come off (v) /kʌm ɒf/", vn: "thành công; bong ra/rời ra", tick: false },
+  { en: "come over (v) /kʌm ˈəʊvər/", vn: "ghé chơi nhà; có cảm giác gì đó", tick: false },
+  { en: "come up with (v) /kʌm ʌp wɪð/", vn: "nảy ra (ý tưởng, giải pháp)", tick: false },
+  
+  { en: "cut back on (v) /kʌt bæk ɒn/", vn: "cắt giảm (chi tiêu, lượng tiêu thụ)", tick: false },
+  { en: "cut down on (v) /kʌt daʊn ɒn/", vn: "cắt giảm bớt (thuốc lá, đồ ngọt...)", tick: false },
+  { en: "cut in (v) /kʌt ɪn/", vn: "ngắt lời; chen ngang (xe cộ)", tick: false },
+  { en: "cut off (v) /kʌt ɒf/", vn: "ngắt (điện, nước); cách ly", tick: false },
+  { en: "cut out (v) /kʌt aʊt/", vn: "loại bỏ; cắt bỏ cái gì", tick: false },
+  
+  { en: "carry away (v) /ˈkæri əˈweɪ/", vn: "làm cho hưng phấn quá mức", tick: false },
+  { en: "carry on (v) /ˈkæri ɒn/", vn: "tiếp tục", tick: false },
+  { en: "carry out (v) /ˈkæri aʊt/", vn: "tiến hành (thí nghiệm, nhiệm vụ)", tick: false },
+  { en: "carry through (v) /ˈkæri θruː/", vn: "hoàn thành; giúp ai vượt qua khó khăn", tick: false },
+  
+  { en: "drop by/in (v) /drɒp baɪ/", vn: "ghé thăm không hẹn trước", tick: false },
+  { en: "drop off (v) /drɒp ɒf/", vn: "thả ai xuống xe; ngủ gật", tick: false },
+  { en: "drop out (v) /drɒp aʊt/", vn: "bỏ học giữa chừng", tick: false },
+  
+  { en: "die out (v) /daɪ aʊt/", vn: "tuyệt chủng; mất hẳn", tick: false },
+  { en: "die down (v) /daɪ daʊn/", vn: "giảm dần (tiếng ồn, cơn bão)", tick: false },
+  
+  { en: "do away with (v) /duː əˈweɪ wɪð/", vn: "loại bỏ; thủ tiêu", tick: false },
+  { en: "do up (v) /duː ʌp/", vn: "thắt dây giày; trang trí lại", tick: false },
+  { en: "do over (v) /duː ˈəʊvər/", vn: "làm lại từ đầu", tick: false }
+  ],
+  2: [
+  { en: "fall for (v) /fɔːl fɔːr/", vn: "bị lừa; yêu/phải lòng ai", tick: false },
+  { en: "fall out (with) (v) /fɔːl aʊt/", vn: "cãi nhau với ai", tick: false },
+  { en: "fall through (v) /fɔːl θruː/", vn: "thất bại, không thành (kế hoạch)", tick: false },
+  { en: "fall behind (v) /fɔːl bɪˈhaɪnd/", vn: "tụt lại phía sau; chậm thanh toán", tick: false },
+  { en: "fall back on (v) /fɔːl bæk ɒn/", vn: "phải dựa vào (khi không còn cách nào)", tick: false },
+  
+  { en: "fill in (v) /fɪl ɪn/", vn: "điền vào (thông tin thiếu); làm thay ai", tick: false },
+  { en: "fill out (v) /fɪl aʊt/", vn: "điền vào (mẫu đơn/tờ khai)", tick: false },
+  { en: "fill up (v) /fɪl ʌp/", vn: "đổ đầy; lấp đầy", tick: false },
+  
+  { en: "get across (v) /ɡet əˈkrɒs/", vn: "truyền đạt (ý tưởng) thông suốt", tick: false },
+  { en: "get by (v) /ɡet baɪ/", vn: "xoay sở để sống qua ngày", tick: false },
+  { en: "get over (v) /ɡet ˈəʊvər/", vn: "vượt qua; bình phục (sau cơn ốm)", tick: false },
+  { en: "get through (v) /ɡet θruː/", vn: "hoàn thành; liên lạc được; thi đỗ", tick: false },
+  { en: "get along/on (with) (v) /ɡet əˈlɒŋ/", vn: "có mối quan hệ tốt với ai", tick: false },
+  { en: "get down to (v) /ɡet daʊn tuː/", vn: "bắt đầu nghiêm túc làm việc gì", tick: false },
+  
+  { en: "give away (v) /ɡɪv əˈweɪ/", vn: "cho đi; tiết lộ (bí mật)", tick: false },
+  { en: "give in (v) /ɡɪv ɪn/", vn: "nhượng bộ; đầu hàng; nộp (bài)", tick: false },
+  { en: "give off (v) /ɡɪv ɒf/", vn: "tỏa ra (mùi, nhiệt, ánh sáng)", tick: false },
+  { en: "give out (v) /ɡɪv aʊt/", vn: "phân phát; cạn kiệt; ngưng hoạt động", tick: false },
+  { en: "give up (v) /ɡɪv ʌp/", vn: "từ bỏ (thói quen, hy vọng)", tick: false },
+  
+  { en: "go off (v) /ɡəʊ ɒf/", vn: "nổ (bom); reo (chuông); ôi thiu (thức ăn)", tick: false },
+  { en: "go over (v) /ɡəʊ ˈəʊvər/", vn: "kiểm tra kỹ lưỡng; xem lại", tick: false },
+  { en: "go through (v) /ɡəʊ θruː/", vn: "trải qua (giai đoạn khó khăn); kiểm tra", tick: false },
+  { en: "go in for (v) /ɡəʊ ɪn fɔːr/", vn: "tham gia (cuộc thi); yêu thích", tick: false },
+  { en: "go with (v) /ɡəʊ wɪð/", vn: "phù hợp với (màu sắc, quần áo)", tick: false },
+  
+  { en: "hold on (v) /həʊld ɒn/", vn: "chờ máy (điện thoại); giữ chặt", tick: false },
+  { en: "hold up (v) /həʊld ʌp/", vn: "trì hoãn; tắc nghẽn; cướp (có vũ khí)", tick: false },
+  { en: "hold back (v) /həʊld bæk/", vn: "kiềm chế (cảm xúc); ngăn cản", tick: false },
+  
+  { en: "keep up with (v) /kiːp ʌp wɪð/", vn: "theo kịp, đuổi kịp (ai đó/xu hướng)", tick: false },
+  { en: "keep off (v) /kiːp ɒf/", vn: "tránh xa; không được chạm vào", tick: false },
+  { en: "keep away (v) /kiːp əˈweɪ/", vn: "cất đi; bắt ai tránh xa", tick: false },
+  { en: "keep on (v) /kiːp ɒn/", vn: "tiếp tục làm gì đó", tick: false },
+  
+  { en: "look after (v) /lʊk ˈɑːftər/", vn: "chăm sóc", tick: false },
+  { en: "look down on (v) /lʊk daʊn ɒn/", vn: "coi thường ai đó", tick: false },
+  { en: "look up to (v) /lʊk ʌp tuː/", vn: "ngưỡng mộ, kính trọng ai đó", tick: false },
+  { en: "look for (v) /lʊk fɔːr/", vn: "tìm kiếm", tick: false },
+  { en: "look forward to (v) /lʊk ˈfɔːrwərd tuː/", vn: "mong đợi, mong chờ", tick: false },
+  { en: "look into (v) /lʊk ˈɪntuː/", vn: "điều tra; nghiên cứu", tick: false },
+  { en: "look out (for) (v) /lʊk aʊt/", vn: "coi chừng; cẩn thận", tick: false },
+  { en: "look up (v) /lʊk ʌp/", vn: "tra cứu (từ điển); khởi sắc (tình hình)", tick: false }
+  ],
+
+  3: [
+  { en: "make up (v) /meɪk ʌp/", vn: "trang điểm; bịa chuyện; làm hòa", tick: false },
+  { en: "make up for (v) /meɪk ʌp fɔːr/", vn: "đền bù; bù đắp cho", tick: false },
+  { en: "make out (v) /meɪk aʊt/", vn: "nhìn ra; hiểu được; phân biệt được", tick: false },
+  { en: "make for (v) /meɪk fɔːr/", vn: "đi về hướng nào đó; dẫn đến", tick: false },
+  { en: "make use of (v) /meɪk juːs əv/", vn: "tận dụng; sử dụng", tick: false },
+
+  { en: "run out of (v) /rʌn aʊt əv/", vn: "hết sạch; cạn kiệt", tick: false },
+  { en: "run into (v) /rʌn ˈɪntuː/", vn: "tình cờ gặp ai; đâm sầm vào", tick: false },
+  { en: "run over (v) /rʌn ˈəʊvər/", vn: "cán qua (bằng xe cộ); giải thích nhanh", tick: false },
+  { en: "run through (v) /rʌn θruː/", vn: "tóm tắt lại; kiểm tra nhanh", tick: false },
+
+  { en: "set off/out (v) /set ɒf/", vn: "khởi hành; bắt đầu chuyến đi", tick: false },
+  { en: "set up (v) /set ʌp/", vn: "thiết lập; thành lập", tick: false },
+  { en: "set back (v) /set bæk/", vn: "trì hoãn; lùi lại lịch trình", tick: false },
+
+  { en: "put aside (v) /pʊt əˈsaɪd/", vn: "gạt sang một bên; tiết kiệm tiền", tick: false },
+  { en: "put back (v) /pʊt bæk/", vn: "để lại chỗ cũ; lùi lịch lại", tick: false },
+  { en: "put by (v) /pʊt baɪ/", vn: "tiết kiệm tiền cho tương lai", tick: false },
+  { en: "put down (v) /pʊt daʊn/", vn: "đặt xuống; ghi chép lại; giết động vật (vì nhân đạo)", tick: false },
+  { en: "put in (for) (v) /pʊt ɪn/", vn: "đưa ra yêu cầu/đơn xin việc; dành thời gian làm gì", tick: false },
+  { en: "put off (v) /pʊt ɒf/", vn: "trì hoãn; làm ai đó mất hứng", tick: false },
+  { en: "put on (v) /pʊt ɒn/", vn: "mặc quần áo; tăng cân", tick: false },
+  { en: "put out (v) /pʊt aʊt/", vn: "dập tắt lửa; gây rắc rối cho ai", tick: false },
+  { en: "put through (v) /pʊt θruː/", vn: "nối máy điện thoại; hoàn tất một kế hoạch", tick: false },
+  { en: "put up (v) /pʊt ʌp/", vn: "dựng lên; cho ai ở nhờ", tick: false },
+  { en: "put up with (v) /pʊt ʌp wɪð/", vn: "chịu đựng", tick: false },
+
+  { en: "take after (v) /teɪk ˈɑːftər/", vn: "giống ai đó (về ngoại hình/tính cách)", tick: false },
+  { en: "take away (v) /teɪk əˈweɪ/", vn: "mang đi; lấy đi; trừ đi số", tick: false },
+  { en: "take back (v) /teɪk bæk/", vn: "rút lại lời nói; trả lại hàng đã mua", tick: false },
+  { en: "take down (v) /teɪk daʊn/", vn: "ghi chép lại; tháo dỡ", tick: false },
+  { en: "take in (v) /teɪk ɪn/", vn: "lừa dối; hiểu/hấp thụ thông tin; nới lỏng/bóp quần áo", tick: false },
+  { en: "take off (v) /teɪk ɒf/", vn: "cất cánh; cởi đồ; thành công rực rỡ", tick: false },
+  { en: "take on (v) /teɪk ɒn/", vn: "tuyển dụng; đảm nhận trách nhiệm", tick: false },
+  { en: "take out (v) /teɪk aʊt/", vn: "đưa ai đi chơi; nhổ răng; đổ rác", tick: false },
+  { en: "take over (v) /teɪk ˈəʊvər/", vn: "tiếp quản; chiếm quyền kiểm soát", tick: false },
+  { en: "take to (v) /teɪk tuː/", vn: "bắt đầu thích; bắt đầu một thói quen", tick: false },
+  { en: "take up (v) /teɪk ʌp/", vn: "bắt đầu một sở thích; chiếm không gian/thời gian", tick: false },
+
+  { en: "turn away (v) /tɜːn əˈweɪ/", vn: "ngoảnh mặt đi; từ chối không cho ai vào", tick: false },
+  { en: "turn back (v) /tɜːn bæk/", vn: "quay trở lại", tick: false },
+  { en: "turn down (v) /tɜːn daʊn/", vn: "từ chối lời mời; vặn nhỏ âm lượng", tick: false },
+  { en: "turn into (v) /tɜːn ˈɪntuː/", vn: "trở thành; biến thành cái gì", tick: false },
+  { en: "turn off/on (v) /tɜːn ɒf/", vn: "tắt/mở thiết bị điện", tick: false },
+  { en: "turn out (v) /tɜːn aʊt/", vn: "hóa ra là; sản xuất; tắt đèn", tick: false },
+  { en: "turn over (v) /tɜːn ˈəʊvər/", vn: "lật úp; chuyển kênh; giao lại", tick: false },
+  { en: "turn up (v) /tɜːn ʌp/", vn: "xuất hiện; vặn to âm lượng", tick: false },
+
+  { en: "try on (v) /traɪ ɒn/", vn: "thử quần áo/giày dép", tick: false },
+  { en: "try out (v) /traɪ aʊt/", vn: "thử nghiệm máy móc/phương pháp mới", tick: false },
+
+  { en: "tell against (v) /tel əˈɡeɪnst/", vn: "làm chứng chống lại; nói điều bất lợi", tick: false },
+  { en: "tell off (v) /tel ɒf/", vn: "la mắng; khiển trách", tick: false },
+  { en: "tell on (v) /tel ɒn/", vn: "mách lẻo; gây ảnh hưởng xấu lên sức khỏe", tick: false },
+  { en: "tell apart (v) /tel əˈpɑːt/", vn: "phân biệt giữa hai người/vật", tick: false }
+  ],
+
+  4: [
+  { en: "see about (v) /siː əˈbaʊt/", vn: "thu xếp; kiểm tra việc gì", tick: false },
+  { en: "see off (v) /siː ɒf/", vn: "tiễn ai đó (lên đường/ra sân bay)", tick: false },
+  { en: "see through (v) /siː θruː/", vn: "nhìn thấu (bản chất/lời nói dối)", tick: false },
+
+  { en: "set against (v) /set əˈɡeɪnst/", vn: "so sánh; làm cho ai thù ghét ai", tick: false },
+  { en: "set apart (v) /set əˈpɑːt/", vn: "làm cho khác biệt/nổi bật", tick: false },
+  { en: "set back (v) /set bæk/", vn: "trì hoãn; lùi lại tiến độ", tick: false },
+  { en: "set down (v) /set daʊn/", vn: "ghi chép lại; thiết lập quy định", tick: false },
+  { en: "set off/out (v) /set ɒf/", vn: "khởi hành; bắt đầu chuyến đi", tick: false },
+  { en: "set up (v) /set ʌp/", vn: "thiết lập; thành lập (công ty/tổ chức)", tick: false },
+
+  { en: "stay away (v) /steɪ əˈweɪ/", vn: "tránh xa; không đến gần", tick: false },
+  { en: "stay in (v) /steɪ ɪn/", vn: "ở nhà; không đi ra ngoài", tick: false },
+  { en: "stay out (v) /steɪ aʊt/", vn: "đi chơi khuya chưa về", tick: false },
+  { en: "stay up (v) /steɪ ʌp/", vn: "thức khuya", tick: false },
+
+  { en: "stand by (v) /stænd baɪ/", vn: "ủng hộ ai; sẵn sàng giúp đỡ", tick: false },
+  { en: "stand for (v) /stænd fɔːr/", vn: "viết tắt cho; tượng trưng cho", tick: false },
+  { en: "stand in for (v) /stænd ɪn fɔːr/", vn: "thay thế vị trí của ai (tạm thời)", tick: false },
+  { en: "stand out (v) /stænd aʊt/", vn: "nổi bật", tick: false },
+  { en: "stand up to (v) /stænd ʌp tuː/", vn: "đối đầu/chống lại ai; bền bỉ", tick: false },
+  { en: "stand up for (v) /stænd ʌp fɔːr/", vn: "bảo vệ/đứng về phía ai", tick: false },
+
+  { en: "run after (v) /rʌn ˈɑːftər/", vn: "đuổi theo ai đó", tick: false },
+  { en: "run away (v) /rʌn əˈweɪ/", vn: "chạy trốn; bỏ nhà ra đi", tick: false },
+  { en: "run down (v) /rʌn daʊn/", vn: "chê bai; kiệt sức/hết pin", tick: false },
+  { en: "run out of (v) /rʌn aʊt əv/", vn: "hết sạch; cạn kiệt", tick: false },
+  { en: "run over (v) /rʌn ˈəʊvər/", vn: "cán qua (bằng xe cộ)", tick: false },
+  { en: "run through (v) /rʌn θruː/", vn: "tóm tắt lại; kiểm tra nhanh", tick: false },
+
+  { en: "watch out (for) (v) /wɒtʃ aʊt/", vn: "coi chừng; cẩn thận", tick: false },
+  { en: "watch over (v) /wɒtʃ ˈəʊvər/", vn: "canh gác; trông nom", tick: false },
+
+  { en: "wear away (v) /weər əˈweɪ/", vn: "mòn dần; làm mất dần", tick: false },
+  { en: "wear down (v) /weər daʊn/", vn: "làm kiệt sức; làm suy yếu chí khí", tick: false },
+  { en: "wear off (v) /weər ɒf/", vn: "mất tác dụng/hiệu lực (thuốc/cảm giác)", tick: false },
+  { en: "wear out (v) /weər aʊt/", vn: "sờn rách (quần áo); làm kiệt sức", tick: false },
+
+  { en: "wipe out (v) /waɪp aʊt/", vn: "xóa sạch; tiêu diệt hoàn toàn", tick: false },
+  { en: "wipe away (v) /waɪp əˈweɪ/", vn: "lau đi (nước mắt/vết bẩn)", tick: false }
+  ],
+
+  5: [
+  { en: "back out of (v) /bæk aʊt əv/", vn: "rút lui khỏi (thỏa thuận/hứa hẹn)", tick: false },
+  { en: "break up with (v) /breɪk ʌp wɪð/", vn: "chia tay với ai đó", tick: false },
+  { en: "brush up on (v) /brʌʃ ʌp ɒn/", vn: "ôn lại; cải thiện (kiến thức)", tick: false },
+  { en: "catch up with (v) /kætʃ ʌp wɪð/", vn: "theo kịp; bắt kịp", tick: false },
+  { en: "check out of (v) /tʃek aʊt əv/", vn: "làm thủ tục trả phòng (khách sạn)", tick: false },
+  { en: "check up on (v) /tʃek ʌp ɒn/", vn: "kiểm tra; giám sát ai đó", tick: false },
+  { en: "come down with (v) /kʌm daʊn wɪð/", vn: "mắc bệnh nhẹ (cảm, sốt...)", tick: false },
+  { en: "come in for (v) /kʌm ɪn fɔːr/", vn: "hứng chịu (chỉ trích/lời khen)", tick: false },
+  { en: "come up with (v) /kʌm ʌp wɪð/", vn: "nảy ra (ý tưởng/giải pháp)", tick: false },
+  { en: "cut down on (v) /kʌt daʊn ɒn/", vn: "cắt giảm bớt (lượng tiêu thụ)", tick: false },
+
+  { en: "do away with (v) /duː əˈweɪ wɪð/", vn: "loại bỏ; xóa bỏ", tick: false },
+  { en: "drop out of (v) /drɒp aʊt əv/", vn: "bỏ học giữa chừng; rời nhóm", tick: false },
+  { en: "face up to (v) /feɪs ʌp tuː/", vn: "đối mặt với (sự thật khó khăn)", tick: false },
+  { en: "fall back on (v) /fɔːl bæk ɒn/", vn: "phải dựa vào (khi không còn cách khác)", tick: false },
+  { en: "fall out with (v) /fɔːl aʊt wɪð/", vn: "cãi nhau với ai đó", tick: false },
+  { en: "fix sb up with (v) /fɪks ʌp wɪð/", vn: "sắp xếp cho ai gặp ai/có thứ gì", tick: false },
+  { en: "get away with (v) /ɡet əˈweɪ wɪð/", vn: "thoát khỏi tội lỗi; không bị phạt", tick: false },
+  { en: "get back at (v) /ɡet bæk æt/", vn: "trả thù ai đó", tick: false },
+  { en: "get down to (v) /ɡet daʊn tuː/", vn: "bắt đầu nghiêm túc làm gì", tick: false },
+  { en: "get on with (v) /ɡet ɒn wɪð/", vn: "hòa thuận với ai; tiếp tục làm gì", tick: false },
+  { en: "get rid of (v) /ɡet rɪd əv/", vn: "tống khứ; loại bỏ cái gì", tick: false },
+  { en: "get through to (v) /ɡet θruː tuː/", vn: "làm cho ai hiểu ra; liên lạc được", tick: false },
+
+  { en: "go along with (v) /ɡəʊ əˈlɒŋ wɪð/", vn: "đồng ý với (ý kiến/quyết định)", tick: false },
+  { en: "go back on (v) /ɡəʊ bæk ɒn/", vn: "thất hứa; không giữ lời", tick: false },
+  { en: "go down with (v) /ɡəʊ daʊn wɪð/", vn: "mắc bệnh (tương tự come down with)", tick: false },
+  { en: "go out with (v) /ɡəʊ aʊt wɪð/", vn: "hẹn hò với ai đó", tick: false },
+  { en: "keep in with (v) /kiːp ɪn wɪð/", vn: "duy trì quan hệ tốt với ai", tick: false },
+  { en: "keep up with (v) /kiːp ʌp wɪð/", vn: "theo kịp; giữ liên lạc", tick: false },
+  { en: "live up to (v) /lɪv ʌp tuː/", vn: "sống xứng đáng với (kỳ vọng)", tick: false },
+  { en: "look down on (v) /lʊk daʊn ɒn/", vn: "coi thường ai đó", tick: false },
+  { en: "look forward to (v) /lʊk ˈfɔːrwərd tuː/", vn: "mong đợi, mong chờ", tick: false },
+  { en: "look in on (v) /lʊk ɪn ɒn/", vn: "ghé thăm ai (để xem họ ổn không)", tick: false },
+  { en: "look out for (v) /lʊk aʊt fɔːr/", vn: "để mắt tới; chăm sóc; coi chừng", tick: false },
+  { en: "look up to (v) /lʊk ʌp tuː/", vn: "ngưỡng mộ, kính trọng", tick: false },
+
+  { en: "make away with (v) /meɪk əˈweɪ wɪð/", vn: "tẩu thoát cùng cái gì (vừa trộm)", tick: false },
+  { en: "make up for (v) /meɪk ʌp fɔːr/", vn: "đền bù; bù đắp cho", tick: false },
+  { en: "measure up to (v) /ˈmeʒər ʌp tuː/", vn: "đạt tới tiêu chuẩn; xứng đáng với", tick: false },
+  { en: "miss out on (v) /mɪs aʊt ɒn/", vn: "bỏ lỡ (cơ hội/dịp vui)", tick: false },
+  { en: "put up with (v) /pʊt ʌp wɪð/", vn: "chịu đựng", tick: false },
+  { en: "read up on (v) /riːd ʌp ɒn/", vn: "đọc nhiều tài liệu về cái gì", tick: false },
+  { en: "run out of (v) /rʌn aʊt əv/", vn: "hết sạch; cạn kiệt", tick: false },
+  { en: "sign up for (v) /saɪn ʌp fɔːr/", vn: "đăng ký tham gia (khóa học/sự kiện)", tick: false },
+  { en: "stand up for (v) /stænd ʌp fɔːr/", vn: "bảo vệ; đứng về phía ai", tick: false },
+  { en: "stand up to (v) /stænd ʌp tuː/", vn: "đối đầu; chống lại ai/cái gì", tick: false },
+  { en: "stay away from (v) /steɪ əˈweɪ frəm/", vn: "tránh xa cái gì/ai ra", tick: false },
+  { en: "take it out on sb (v) /teɪk aʊt ɒn/", vn: "giận cá chém thớt (lên đầu ai đó)", tick: false },
+  { en: "talk down to (v) /tɔːk daʊn tuː/", vn: "nói giọng bề trên; coi thường", tick: false },
+  { en: "wait up for (v) /weɪt ʌp fɔːr/", vn: "thức đợi ai về", tick: false },
+  { en: "walk out on (v) /wɔːk aʊt ɒn/", vn: "rời bỏ ai (khi họ cần mình)", tick: false }
+  ],
+
+
+
+};
+
+let currList = 1, listCopy=[], index=0;
+
+let totalWords = 0;
+let knownCount = 0;
+
+/********** LOAD LIST **********/
+function loadList(){
+  currList = document.getElementById("wordList").value;
+  listCopy = [...data[currList]];
+  totalWords = listCopy.length;
+  knownCount = 0;
+
+  updateCounter();
+  renderWords();
+  index=-1;
+  nextWord();
+  loadExercises();
+}
+
+function updateCounter(){
+  document.getElementById("progressCounter").innerText =
+    `Đã biết ${knownCount} / ${totalWords}`;
+}
+
+
+document.getElementById("wordList").onchange = loadList;
+loadList();
+
+/********** RENDER & SORT **********/
+function renderWords(){
+  const box=document.getElementById("wordContainer");
+  box.innerHTML="";
+
+  let sorted=[...data[currList]].sort((a,b)=>b.tick - a.tick);
+
+  sorted.forEach(item=>{
+    let realIndex = data[currList].indexOf(item);
+    box.innerHTML+=`
+      <div class="word-row">
+        <span>${item.en}: ${item.vn}</span>
+        <input type="checkbox" ${item.tick?"checked":""} onclick="toggleTick(${realIndex})">
+      </div>`;
+  });
+}
+
+/********** TICK UPDATE **********/
+function toggleTick(realIndex){
+  data[currList][realIndex].tick = !data[currList][realIndex].tick;
+  renderWords();
+}
+
+/********** REVIEW **********/
+function nextWord(){
+  document.getElementById("answer").innerHTML="";
+  if(listCopy.length===0){
+    document.getElementById("vietWord").innerHTML="🎉 Bạn đã học xong hết!";
+    return;
+  }
+  index=Math.floor(Math.random()*listCopy.length);
+  document.getElementById("vietWord").innerHTML=listCopy[index].vn;
+}
+
+function know(){
+  firework();
+  knownCount++;
+  listCopy.splice(index,1);
+  updateCounter();
+  nextWord();
+}
+
+function dontKnow(){
+  document.getElementById("answer").innerHTML=listCopy[index].en;
+}
+
+/********** EXERCISES **********/
+function loadExercises(){
+  const box=document.getElementById("exercise");
+  box.innerHTML="";
+  exercises[currList].forEach((item,i)=>{
+    box.innerHTML+=`
+    <div style="margin:10px 0;">
+      ${i+1}. ${item.q}
+      <input id="ex${i}">
+      <button onclick="checkEx(${i})">Check</button>
+      <span id="res${i}" class="result"></span>
+    </div>`;
+  });
+}
+
+function checkEx(i){
+  const user = document.getElementById("ex"+i).value.trim().toLowerCase();
+  const ans = exercises[currList][i].a.toLowerCase();
+  const box = document.getElementById("res"+i);
+
+  if(user === ans) {
+    box.innerHTML = "✔ Correct";
+    box.style.color = "#28a745"; // chữ Correct màu xanh lá
+    firework(); // gọi pháo hoa
+  } else {
+    box.innerHTML = "✘ " + exercises[currList][i].a;
+    box.style.color = "#D02752"; // chữ sai màu đỏ
+  }
+}
+
+/********** FIREWORK **********/
+function firework(){
+  for(let i=0;i<25;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.setProperty("--x",(Math.random()-.5)*600+"px");
+    c.style.setProperty("--y",(Math.random()-.5)*600+"px");
+    c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),900);
+  }
+}
+</script>
+
+</body>
+</html>
